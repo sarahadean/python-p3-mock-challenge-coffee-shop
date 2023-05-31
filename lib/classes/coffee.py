@@ -20,7 +20,7 @@ class Coffee:
 
     def __init__(self, name):
         self.name = name
-        self._orders = []
+        self._orders = [] #list of all orders for particular coffee
         self._customers = [] #unique list of all customers who have ordered a particular coffee
         Coffee.all.append(self)
 
@@ -53,10 +53,16 @@ class Coffee:
 
         return self._customers
     
-    
 
+#     Coffee num_orders()
+# Returns the total number of times that coffee has been ordered
     def num_orders(self):
-        pass
-    
+        return len(self._orders)
+        
+    # Coffee average_price()
+# Returns the average price for a coffee based on its orders
+# Reminder: you can calculate the average by adding up all the orders prices and dividing by the number of orders
     def average_price(self):
-        pass
+        total_price = [order.price for order in self._orders if order.coffee == self]
+        avg = sum(total_price)/len(total_price)
+        return avg

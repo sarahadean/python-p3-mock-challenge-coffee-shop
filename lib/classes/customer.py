@@ -25,7 +25,7 @@ class Customer:
         else:
             raise Exception('Name must be string between 1 and 15 characters')
         
-        
+
     def orders(self, new_order=None):
         from classes.order import Order
 
@@ -40,3 +40,11 @@ class Customer:
         if isinstance(new_coffee, Coffee) and new_coffee not in self._coffees:
             self._coffees.append(new_coffee)
         return self._coffees
+    
+    def create_order(coffee, price):
+        return Customer(coffee, price)
+        # self._orders.append()
+    
+#     Customer
+# Customer create_order(coffee, price)
+# given a coffee object and a price(as an integer), creates a new order and associates it with that customer and coffee.
